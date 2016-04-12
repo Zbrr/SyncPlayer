@@ -2,6 +2,7 @@
 	"name": "ASP.NET",
 	"private": true,
   "dependencies": {
-    "bootstrap": "3.3.6"
+    "bootstrap": "3.3.6",
+    "jwplayer": "6.12.4956"
   }
 }
