@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45": {
+      "wrappedProject": "../../SyncPlayer.Common/SyncPlayer.Common.csproj",
+      "bin": {
+        "assembly": "../../SyncPlayer.Common/obj/{configuration}/SyncPlayer.Common.dll",
+        "pdb": "../../SyncPlayer.Common/obj/{configuration}/SyncPlayer.Common.pdb"
+      }
+    }
+  }
+}

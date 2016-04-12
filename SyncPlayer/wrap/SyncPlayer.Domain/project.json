@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45": {
+      "wrappedProject": "../../SyncPlayer.Domain/SyncPlayer.Domain.csproj",
+      "bin": {
+        "assembly": "../../SyncPlayer.Domain/obj/{configuration}/SyncPlayer.Domain.dll",
+        "pdb": "../../SyncPlayer.Domain/obj/{configuration}/SyncPlayer.Domain.pdb"
+      },
+      "dependencies": {
+        "SyncPlayer.Common": "1.0.0-*",
+        "SyncPlayer.DropboxAPI": "1.0.0-*",
+        "SyncPlayer.YoutubeAPI": "1.0.0-*"
+      }
+    }
+  }
+}
