@@ -1,8 +1,13 @@
 {
-	"name": "ASP.NET",
-	"private": true,
+  "name": "ASP.NET",
+  "private": true,
   "dependencies": {
     "bootstrap": "3.3.6",
-    "jwplayer": "6.12.4956"
+    "jwplayer": "6.12.4956",
+    "angular": "1.5.4",
+    "angular-route": "1.5.3"
+  },
+  "resolutions": {
+    "angular": "1.5.4"
   }
 }

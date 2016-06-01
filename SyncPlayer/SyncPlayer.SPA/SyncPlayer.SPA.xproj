@@ -16,7 +16,6 @@
   </PropertyGroup>
   <ItemGroup>
     <DnxInvisibleContent Include=".bowerrc" />
-    <DnxInvisibleContent Include="package.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SyncPlayer.Common\SyncPlayer.Common.csproj" />

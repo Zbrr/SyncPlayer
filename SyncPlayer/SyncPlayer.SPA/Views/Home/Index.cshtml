@@ -8,34 +8,82 @@
     <title>Index page</title>
     
     <environment names="Development">
+
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/app/assets/css/main.css" />
+
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/angular/angular.js"></script>
+        <script src="~/lib/angular-route/angular-route.js"></script>
+        <script src="~/lib/jwplayer/jwplayer.js"></script>
+
+        <script src="~/app/app.js"></script>
+        <script src="~/app/shared/header/headerController.js"></script>
+        <script src="~/app/shared/mediaPlayer/customJwPlayer.js"></script>
+
     </environment>
+
 </head>
-<body>
-    <div class="container">
-        <table class="table table-bordered table-hover">
+<body ng-app="syncPlayer">
+
+    <div ng-include="'/app/shared/header/header.html'">
+    </div>
+
+    <div ng-view>
+    </div>
+
+    <custom-jw-player player-id="player1">
+    </custom-jw-player>
+
+    @*<div id="playlist-panel" style="position: absolute; top: 10%; left: 10%; right: 10%; bottom: 10%; background-color: white; opacity: 0; overflow: auto;">
+
+        <span class="btn btn-success" onclick="javascript: jwplayer('myElement').play()">
+            Play
+        </span>
+
+        <span class="btn btn-success" onclick="javascript: jwplayer('myElement').pause(true)">
+            Stop
+        </span>
+
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Description</th>
                     <th>File Source</th>
                     <th>Url</th>
+                    <th>Play</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var file in Model)
                 {
                     <tr>
-                        <td>@file.Title</td>
-                        <td>@file.Description</td>
                         <td>@file.FileSource</td>
                         <td>@file.Url</td>
+                        <td>
+                            <span class="song btn btn-success" data-url="@file.Url">
+                                Play
+                            </span>
+                        </td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
+    <div id='myElement'>
+        Loading the player...
+    </div>*@
+
+    @*<script type='text/javascript'>
+
+      $(document.body).on("click", ".song", function (event) {
+          var url = $(event.currentTarget).attr("data-url");
+
+          jwplayer("myElement").setup({
+              "file": url
+          });
+      });
+
+    </script>*@
 </body>
 </html>
