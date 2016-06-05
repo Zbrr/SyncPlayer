@@ -5,7 +5,7 @@ Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 */
 
 var gulp = require("gulp"),
-    less = require("gulp-less"),
+    sass = require("gulp-sass"),
     cleanCss = require("gulp-clean-css");
 
 var paths = {
@@ -13,12 +13,16 @@ var paths = {
 };
  
 paths.css = paths.webroot + "assets/css/**/*.css";
-paths.less = paths.webroot + "assets/less/**/*.less";
+paths.sass = paths.webroot + "assets/sass/**/*.scss";
 paths.minCss = paths.webroot + "assets/css/";
 
-gulp.task("less", function () {
-    return gulp.src(paths.less)
-            .pipe(less())
+gulp.task("sass", function () {
+    return gulp.src(paths.sass)
+            .pipe(sass())
             .pipe(cleanCss())
             .pipe(gulp.dest(paths.minCss));
+});
+
+gulp.task('watch', function () {
+    return gulp.watch(paths.sass, ['sass']);
 });

@@ -26,5 +26,12 @@ namespace SyncPlayer.SPA.Controllers
 
             return View(files);
         }
+
+        public async Task<IActionResult> Search(string query)
+        {
+            var files = await service.FindAudioFileAsync(query);
+
+            return Json(files);
+        }
     }
 }

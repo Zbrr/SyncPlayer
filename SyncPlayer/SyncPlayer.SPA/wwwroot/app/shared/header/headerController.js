@@ -5,8 +5,9 @@
         .module('syncPlayer')
         .controller('headerController', headerController);
 
-    headerController.$inject = ['$location']; 
+    headerController.$inject = ['$location'];
 
-    function headerController($location) {
+    function headerController($scope, $location, $http, limitToFilter) {
+
     }
 })();
