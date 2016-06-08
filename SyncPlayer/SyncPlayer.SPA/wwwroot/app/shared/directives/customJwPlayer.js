@@ -9,28 +9,49 @@
     
     function customJwPlayer($window, $compile, $rootScope) {
 
-        var initializeJwPlayer = function (scope, element) {
+        var player = (function () {
+            
+            var playerId;
 
-            var playerId = scope.playerId || "syncPlayer1";
-            var playerTemplate = '<div id="' + playerId + '" class="jwplayer"></div>';
+            function init($scope, element) {
+                buildJwPlayer($scope, element);
+                registerEvents($scope);
+            };
 
-            element.html(playerTemplate);
-            $compile(element.contents())(scope);
+            function buildJwPlayer($scope, element) {
+                playerId = $scope.playerId || "syncPlayer1";
+                var playerTemplate = '<div id="' + playerId + '" class="jwplayer"></div>';
+                element.html(playerTemplate);
+                $compile(element.contents())($scope);
+            };
 
-            jwplayer(playerId).setup({
-                "file": "https://www.youtube.com/watch?v=1cQh1ccqu8M&list=PLmI03RN1Qwbd8rWq9ht2NHsVqxnP3hVgE&index=41"
-            });
+            function registerEvents($scope) {
+                $scope.$on('select-audio-file', selectAudioFile);
+            };
 
-            jwplayer(playerId).play();
-        };
+            function selectAudioFile(event, audioFile) {
+                jwplayer(playerId).setup({
+                    "file": audioFile.Url
+                });
+                play();
+            };
+
+            function play() {
+                jwplayer(playerId).play();
+            };
+
+            return {
+                init: init
+            }
+        })();
 
         return {
             restrict: 'EA',
             scope: {
                 playerId: "@"
             },
-            link: function (scope, element, attrs) {
-                initializeJwPlayer(scope, element);
+            link: function ($scope, element, attrs) {
+                player.init($scope, element);
             }
         }
     }

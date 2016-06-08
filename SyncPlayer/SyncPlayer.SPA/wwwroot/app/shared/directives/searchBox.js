@@ -34,7 +34,7 @@
             });
 
             $(element).find(".typeahead").bind('typeahead:select', function (ev, suggestion) {
-                console.log('Selection: ' + suggestion);
+                $rootScope.$broadcast('select-audio-file', suggestion);
             });
         };
 
